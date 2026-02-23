@@ -1,0 +1,19 @@
+START TRANSACTION;
+
+-- Insert a user
+INSERT INTO users (username) VALUES ('cliff');
+
+-- Insert a log for that user
+INSERT INTO user_activity_logs (user_id, action)
+VALUES (LAST_INSERT_ID(), 'rated comfort room');
+
+-- Insert rating tied to the SAME user + log
+INSERT INTO comfort_room_ratings (user_id, log_id, rating, comment)
+VALUES (
+    LAST_INSERT_ID(),     -- log_id from previous insert
+    LAST_INSERT_ID(),     -- same ID works because log was just inserted
+    5,
+    'Very clean and well maintained'
+);
+
+COMMIT;

@@ -15,16 +15,4 @@ CREATE TABLE user_activity_logs (
     FOREIGN KEY (user_id) REFERENCES users(id)
 ) ENGINE=InnoDB;
 
-CREATE TABLE comfort_room_ratings (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    log_id INT NULL,
-    rating TINYINT NOT NULL,          -- e.g. 1–5 stars
-    comment VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (log_id) REFERENCES user_activity_logs(id)
-) ENGINE=InnoDB;
-
 COMMIT;

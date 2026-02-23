@@ -2,6 +2,7 @@ START TRANSACTION;
 
 SET FOREIGN_KEY_CHECKS = 0;
 
+DROP TABLE IF EXISTS `comfort_room_ratings`;
 DROP TABLE IF EXISTS `user_activity_logs`;
 DROP TABLE IF EXISTS `users`;
 
